@@ -1,0 +1,214 @@
+.mediaViewInfo {
+	--web-view-name: home( landing page );
+	--web-view-id: home_landing_page_;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: width;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: home_landing_page_;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+	overflow: hidden;
+}
+#home_landing_page_ {
+	position: absolute;
+	width: 1366px;
+	height: 700px;
+	background-color: rgba(255,255,255,1);
+	overflow: hidden;
+	--web-view-name: home( landing page );
+	--web-view-id: home_landing_page_;
+	--web-scale-to-fit: true;
+	--web-scale-to-fit-type: width;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#page {
+	position: absolute;
+	width: 2031px;
+	height: 816px;
+	left: -266px;
+	top: 0px;
+	overflow: visible;
+}
+#sliver_back {
+	position: absolute;
+	width: 1632px;
+	height: 816px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#orange {
+	position: absolute;
+	width: 683px;
+	height: 736px;
+	left: 266px;
+	top: 80px;
+	overflow: visible;
+}
+#dblue {
+	position: absolute;
+	width: 683px;
+	height: 736px;
+	left: 949px;
+	top: 80px;
+	overflow: visible;
+}
+#city_left {
+	mix-blend-mode: soft-light;
+	position: absolute;
+	width: 1180px;
+	height: 350px;
+	left: 46px;
+	top: 416px;
+	overflow: visible;
+}
+#city_Right {
+	mix-blend-mode: soft-light;
+	position: absolute;
+	width: 1410px;
+	height: 418px;
+	left: 621px;
+	top: 348px;
+	overflow: visible;
+}
+#moon {
+	opacity: 0.82;
+	fill: rgba(255,255,255,1);
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.moon {
+	position: absolute;
+	overflow: visible;
+	width: 58px;
+	height: 58px;
+	left: 330px;
+	top: 212px;
+}
+#Sun {
+	fill: rgba(255,221,1,0.6);
+}
+.Sun {
+	position: absolute;
+	overflow: visible;
+	width: 58px;
+	height: 58px;
+	left: 1512px;
+	top: 324px;
+}
+#realstate {
+	position: absolute;
+	width: 414px;
+	height: 414px;
+	left: 1071px;
+	top: 209px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: advance_real_state.html;
+	cursor: pointer;
+}
+#media {
+	position: absolute;
+	width: 350px;
+	height: 350px;
+	left: 431px;
+	top: 241px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Advance_media.html;
+	cursor: pointer;
+}
+#Advance {
+	left: 74px;
+	top: 16px;
+	position: absolute;
+	overflow: visible;
+	width: 167px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Segoe UI;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 41px;
+	color: rgba(248,145,29,1);
+}
+#socials {
+	position: absolute;
+	width: 208.929px;
+	height: 34.993px;
+	left: 1122.071px;
+	top: 26px;
+	overflow: visible;
+}
+#facebook {
+	fill: rgba(255,255,255,1);
+}
+.facebook {
+	overflow: visible;
+	position: absolute;
+	width: 18px;
+	height: 33.608px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#instagram {
+	fill: rgba(255,255,255,1);
+}
+.instagram {
+	overflow: visible;
+	position: absolute;
+	width: 33px;
+	height: 32.993px;
+	left: 50.923px;
+	top: 2px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#whatsapp {
+	fill: rgba(255,255,255,1);
+}
+.whatsapp {
+	overflow: visible;
+	position: absolute;
+	width: 31.5px;
+	height: 31.5px;
+	left: 116.373px;
+	top: 1.746px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#mail {
+	fill: rgba(255,255,255,1);
+}
+.mail {
+	overflow: visible;
+	position: absolute;
+	width: 32px;
+	height: 24px;
+	left: 176.929px;
+	top: 9px;
+	transform: matrix(1,0,0,1,0,0);
+}
