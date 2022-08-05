@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- APlayer CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css"/>
+	<!-- Boxicons Link -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="icon" type="image/x-icon" href="../img/logo-final copy.png">
+
+    <title>ADS</title>
+    <style>
+    	body{
+    		background-color: #000;
+    		font-family: Open sans;
+    	}
+		/* Header */
+		.header{
+			position: fixed;
+			left:0;
+			top:0;
+			width: 100%;
+			z-index:99;
+			transition: all 0.5s ease;
+		}
+		.header{
+			background-color: #000;
+			position: fixed;
+		}
+		.header .brand-name{
+			padding:0 15px;
+		}
+		.header .brand-name a{
+			text-decoration: none;
+			font-size: 30px;
+			color:#fff;
+			text-transform: uppercase;
+			font-weight: 900;
+			letter-spacing:2px;
+			transition: all 0.5s ease;
+		}
+		.header.fixed .brand-name a{
+			color:#fff;
+		}
+		.header .nav-toggle{
+			width: 40px;
+			height: 34px;
+			border:1px solid #fff;
+			border-radius: 3px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.5s ease;
+			display: none;
+		}
+		.header.fixed .nav-toggle{
+		border-color: #fff;
+		}
+		.header .nav-toggle span{
+			height: 1px;
+			display: block;
+			width: 16px;
+			background-color: #fff;
+			position: relative;
+			transition: all 0.5s ease;
+		}
+		.header .nav-toggle span:before,
+		.header .nav-toggle span:after{
+			content: '';
+			position: absolute;
+			left:0;
+			top:0;
+			height: 1px;
+			width: 100%;
+			background-color: #fff;
+			transition: all 0.5s ease;
+		}
+		.header.fixed .nav-toggle span,
+		.header.fixed .nav-toggle span:before,
+		.header.fixed .nav-toggle span:after{
+		background-color: #fff;
+		}
+		.header .nav-toggle span:before{
+			transform:translateY(-6px);
+		}
+		.header .nav-toggle span:after{
+			transform:translateY(6px);
+		}
+		.header .nav{
+			padding:0 15px;
+		}
+		.header .nav ul{
+			list-style: none;
+			margin:0;
+			padding:0;
+		}
+		.header .nav ul li{
+			display: inline-block;
+			margin-left: 30px;
+		}
+		.header .nav ul li a{
+			text-decoration: none;
+			font-size: 16px;
+			font-weight: 600;
+			color:#fff;
+			padding:25px 0;
+			display: block;
+			transition: all 0.5s ease;
+		}
+		.header.fixed .nav ul li a{
+		color:#fff;
+		}
+		.header.fixed .nav ul li a:hover,
+		.header .nav ul li a:hover{
+			color:#FF9800;
+		}
+
+    	img{
+    		width: 100%;
+    		min-height: 250px;
+    	}
+    	.main{
+    		padding: 40px 0;
+    	}
+    	.col-md-3{
+    		margin-bottom: 40px;
+    	}
+    	.album-poster{
+    		position: relative;
+    		display: block;
+    		border-radius: 7px;
+    		overflow: hidden;
+    		box-shadow: 0 15px 35px #ff3300;
+    		transition: all ease 0.4s;
+    	}
+    	.album-poster:hover{
+    		box-shadow: none;
+    		transform: scale(0.98) translateY(5px);
+    	}
+    	h3{
+    		font-size: 34px;
+    		margin-bottom: 34px;
+    		border-bottom: 4px solid #fff;
+    		padding-bottom: 15px;
+    	}
+    	p{
+    		font-size: 15px;
+			color: #fff;
+    	}
+    	h4{
+    		font-size: 16px;
+    		text-transform: uppercase;
+    		margin-top: 15px;
+    		font-weight: 700;
+			color: #fff;
+    	}
+		
+
+		/*default is hide music player*/
+		#aplayer{
+			position: fixed;
+			bottom: -100%;
+			left: 0;
+			width: 100%;
+			margin: 0;
+			box-shadow: 0 -2px 2px #000;
+			background-color: #000;
+			transition: all ease 0.5s;
+		}
+		#aplayer.showPlayer{
+			bottom: 0;
+		}
+		.row h3{
+			color: #fff;
+		}
+
+		
+		/*MUSIC PLAYER CUSTOMIZING STYLE*/
+		span{
+			color: #fff !important;
+			font-size: 16px;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded{
+			background: #000;
+    		height: 4px;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played{
+			height: 4px;
+			background-color: #2196F3 !important;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb{
+			background-color: #2196F3 !important;
+		}
+
+		.aplayer .aplayer-icon{
+			width: 20px;
+			height: 20px;
+		}
+		.aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path {
+		    fill: #fff;
+		}
+		.aplayer .aplayer-info .aplayer-music{
+			margin-bottom: 5px;
+		}
+		section{
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 50px;
+			position: relative;
+			overflow: hidden;
+		}
+		section::before{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: rgba(0, 0, 0, 0.6);
+			opacity: 0;
+			transition: all 0.4s ease;
+		}
+		section.active::before{
+			opacity: 1;
+		}
+		.containerV{
+			max-width: 900px;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			background: #fff;
+			padding: 5px 10px;
+			position: relative;
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+		}
+		section.active .containerV{
+			visibility: hidden;
+		}
+		.containerV .main-video{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(1);
+			width: 100%;
+			z-index: 999;
+			opacity: 0;
+			pointer-events: none;
+			visibility: visible;
+			transition: all 0.4s ease;
+		}
+		section.active .containerV .main-video{
+			transform:translate(-50%, -50%) scale(1);
+			opacity: 1;
+			pointer-events: auto;
+		}
+		.containerV .main-video video{
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			outline: none;
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+		}
+		.containerV .main-video .close{
+			position: absolute;
+			top: -10px;
+			right: -36px;
+			font-size: 35px;
+			color: #fff;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			z-index: 1000;
+			pointer-events: auto;
+			opacity: 0.6;
+		}
+		.containerV .main-video .close:hover{
+			opacity: 1;
+		}
+		.containerV .videos{
+			position: relative;
+			height: 200px;
+			width: calc(100% / 2 - 5px);
+			margin: 5px 0;
+			cursor: pointer;
+		}
+		.containerV .videos::before{
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background: rgba(0,0,0,0.3);
+			pointer-events: none;
+		}
+		.containerV .videos video{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			outline: none;
+			pointer-events: none;
+		}
+		.containerV .videos i{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 50px;
+			color: #fff;
+			pointer-events: none;
+		}
+		@media (max-width: 750px) {
+			.containerV .main-video{
+				position: fixed;
+				width: 83%;
+			}
+			.containerV .videos{
+				width: 100%;
+				height: 320px;
+			}
+			}
+		@media (max-width: 600px) {
+			.containerV .videos{
+				width: 100%;
+				height: 250px;
+			}
+			}
+
+    </style>
+ 	</head>
+	<body>
+ <!-- Header Start -->
+ <header class="header">
+	<div class="container">
+		<div class="row justify-content-between align-items-center">
+			<div class="brand-name">
+				<a href="index.html">Mawjud.</a>
+			</div>
+	 <div class="nav-toggle">
+	   <span></span>
+	 </div>
+			<nav class="nav">
+				<ul>
+					<li><a href="../index.html">Back To Home</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+<!-- Header End -->
+<div class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>New Releasess</h3>
+			</div>
+			<div class="col-md-3">
+				<a href="javascript:void();" class="album-poster" data-switch="0">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>Sig tune</h4>
+				<p>Islam Elkheir - 2022</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="1">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>advance ramadan</h4>
+				<p>Osama Rikaby - 2022</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="2">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>La Fresh</h4>
+				<p>Osama Rikaby - 2022</p>
+			</div>
+
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="3">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>Piano + harp</h4>
+				<p>Islam Elkheir - 2022</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="4">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>plus Real Estate</h4>
+				<p>Osama Rikaby - 2022</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="5">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>Safat</h4>
+				<p>Islam Elkheir - 2022</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="6">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>alta3em</h4>
+				<p>Rayan ft Islam Elkheir - 2022</p>
+			</div>
+			<div class="col-md-3">
+				<a href="#" class="album-poster" data-switch="7">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>marching music</h4>
+				<p>Islam Elkheir - 2022</p>
+			</div>
+			
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-12">
+				<h3>coming soon</h3>
+			</div>
+			<div class="col-md-2">
+				<a href="#" class="album-poster" data-switch="8">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>beet a7lamk</h4>
+				<p>Rayan - 2022</p>
+			</div>
+			<div class="col-md-2">
+				<a href="#" class="album-poster" data-switch="9">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>Ngoom alshwar3</h4>
+				<p>Rayan - 2022</p>
+			</div>
+			<div class="col-md-2">
+				<a href="#" class="album-poster" data-switch="10">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>sayed waiting tune </h4>
+				<p>Islam Elkheir - 2022</p>
+			</div>
+			
+			<div class="col-md-2">
+				<a href="#" class="album-poster" data-switch="11">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4>serra</h4>
+				<p>Islam Elkheir - 2022</p>
+			</div>
+			<div class="col-md-2">
+				<a href="#" class="album-poster">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4></h4>
+			</div>
+			<div class="col-md-2">
+				<a href="#" class="album-poster">
+					<img src="../img/logo-final copy.png" alt="">
+				</a>
+				<h4></h4>
+			</div>
+		</div>
+		<br><br>
+		<div class="row">
+			<div class="col-md-12">
+				<h3>ADS</h3>
+			</div>
+		</div>
+		 <section>
+    		<div class="containerV">
+				<div class="main-video">
+					<video src="./end 2.mp4" autoplay muted controls></video>
+					<i class='bx bx-x close'></i>
+				</div>
+				<div class="videos">
+					<video src="./end 2.mp4"></video>
+					<i class='bx bx-play-circle'></i>
+				</div>
+				<div class="videos">
+					<video src="./Watch - Facebook.mp4"></video>
+					<i class='bx bx-play-circle'></i>
+				</div>
+				<div class="videos">
+					<video src="./Watch - Facebook_2.mp4"></video>
+					<i class='bx bx-play-circle'></i>
+				</div>
+				<div class="videos">
+					<video src="./Watch - Facebook_3.mp4"></video>
+					<i class='bx bx-play-circle'></i>
+				</div>
+    		</div>
+  		</section>
+
+
+	</div>
+</div>
+
+	<div id="aplayer"></div>
+
+	<!-- Jquery Link -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<!-- Bootstrap Link -->
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- APlayer Jquery link -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>	
+
+	<script>
+
+
+		// NOW I CLICK album-poster TO GET CURRENT SONG ID
+		$(".album-poster").on('click', function(e){
+			var dataSwitchId = $(this).attr('data-switch');
+			//console.log(dataSwitchId);
+
+			// and now i use aplayer switch function see
+			ap.list.switch(dataSwitchId); //this is static id but i use dynamic 
+
+			// aplayer play function
+			// when i click any song to play
+			ap.play();
+
+			// click to slideUp player see
+			$("#aplayer").addClass('showPlayer');
+		});
+
+		const ap = new APlayer({
+		    container: document.getElementById('aplayer'),
+		    listFolded: true,
+		    audio: [
+		    {
+		        name: 'Sig tune',
+		        artist: 'Islam Elkheir',
+		        url: '../source/4 April 2021/Ad mix/0-Sig-tune.mp3',
+		    },
+			{
+		        name: 'advance ramadan',  // SONG NAME
+		        artist: 'Osama Rikaby ft Islam Elkheir', //ARTIST NAME
+		        url: '../source/4 April 2021/Ad mix/advance ramadan final.mp3', // PATH NAME AND SONG URL
+		    },
+			{
+				name: 'La Fresh',
+				artist: 'Osama Rikaby',
+				url: '../source/4 April 2021/Ad mix/Osama - La Fresh 2021.mp3',
+			},
+			{
+				name: 'Piano + harp',
+				artist: 'Islam Elkheir',
+				url: '../source/4 April 2021/Ad mix/1 Piano + harp.mp3',
+			},
+			{
+				name: 'plus Real Estate',
+				artist: 'Osama Rikaby',
+				url: '../source/4 April 2021/Ad mix/plus 2_2.mp3',
+			},
+			{
+				name: 'Safat',
+				artist: 'Islam Elkheir',
+				url: '../source/4 April 2021/Ad mix/2 EPic music.mp3',
+			},
+			{
+				name: 'alta3em',
+				artist: 'Rayan ft Islam Elkheir',
+				url: '../source/4 April 2021/Ad mix/Rayan - alta3em( final ).mp3',
+			},
+			{
+				name: 'marching music',
+				artist: 'Islam Elkheir',
+				url: '../source/4 April 2021/Ad mix/3 marching music.mp3',
+			},
+			{
+				name: 'beet a7lamk',
+				artist: 'Rayan ft Islam Elkheir',
+				url: '../source/4 April 2021/Ad mix/Rayan - beet a7lamk.mp3',
+			},
+			{
+				name: 'Ngoom alshwar3',
+				artist: 'Rayan ft Islam Elkheir',
+				url: '../source/4 April 2021/Ad mix/Rayan - Ngoom alshwar3 final.mp3',
+			},
+			{
+				name: 'sayed waiting tune ',
+				artist: 'Islam Elkheir',
+				url: '../source/4 April 2021/Ad mix/sayed waiting tune .mp3',
+			},
+			{
+				name: 'serra',
+				artist: 'Islam Elkheir',
+				url: '../source/4 April 2021/Ad mix/4 serra.mp3',
+			},
+
+
+		    ]
+		});
+	</script>
+
+<script>
+    const section = document.querySelector("section"),
+    mainVideo = document.querySelector(".main-video video"),
+     videos = document.querySelectorAll(".videos"),
+     close = document.querySelector(".close");
+
+     for (var i = 0; i < videos.length; i++) {
+       videos[i].addEventListener("click", (e)=>{
+         const target = e.target;
+         section.classList.add("active");
+         target.classList.add("active");
+         let src = document.querySelector(".videos.active video").src;
+         mainVideo.src = src;
+
+         close.addEventListener("click", ()=>{
+           section.classList.remove("active");
+           target.classList.remove("active");
+           mainVideo.src = "";
+         });
+       });
+     };
+  </script>
+
+	</body>
+</html>

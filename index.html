@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance Group</title>
+    <link rel="stylesheet" href="./css/land.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  </head>
+  <body>
+
+    <header>
+      <img class="logo" src="img/group.png" alt=""><a href="#" class="brand">Advance Group</a>
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <div class="navigation-items">
+          <a href="mawjud/index.html">Mawjud</a>
+          <a href="html/advance_real_state.html">Advance RealEstate</a>
+          <a href="html/Construction.html">Advance Construction</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="home">
+      <video class="video-slide active" src="./img/Road - 84970.mp4" autoplay muted loop></video>
+      <div class="content active">
+        <h1>امتلك <span>...طور ...إبتكر</span></h1>
+        <p dir="rtl">وكن جزءاً من مجتمع راقي</p>
+        <img class="left" src="img/group.png" alt="">
+      </div>
+      <div class="media-icons">
+        <a href="https://www.facebook.com/Advance.sudan"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/advancegroupsd?utm_medium=copy_link"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </section>
+
+    <script type="text/javascript">
+    //Javacript for responsive navigation menu
+    const menuBtn = document.querySelector(".menu-btn");
+    const navigation = document.querySelector(".navigation");
+
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+      navigation.classList.toggle("active");
+    });
+    </script>
+
+  </body>
+</html>
